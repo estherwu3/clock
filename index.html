@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clock</title>
+    <style>
+    body{
+        background-color:#FFFFFF;        
+    }
+    #wrap{
+        width:50%;
+        height:50%;
+        background-position: 50%;
+
+    }
+    #clock{
+        width:520px;
+        height:520px;
+        border-style:solid;
+        border-width:35px;
+        background-color:rgb(23,44,60);
+        border-color:rgb(39,72,98);
+        border-radius:50%;
+        -webkit-box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+        margin:auto auto;
+        position:absolute;
+    }
+    #hour{        
+        height:15px;
+        width:130px;
+        margin:265px 145px;
+        background-color: rgba(0, 200, 150,.5);
+        -webkit-box-shadow: 2px 0px 15px rgba(0,0,0,0.5);
+        transform-origin: right center;
+        position:absolute;
+    }
+    #minute{
+        height:8px;
+        width:220px;
+        margin:270px 55px;
+        background-color:rgba(96, 207, 180, 0.5);
+        -webkit-box-shadow: 2px 0px 15px rgba(0,0,0,0.5);
+        transform-origin: right center;
+        position:absolute;
+    }
+    #second{
+        height:5px;
+        width:235px;
+        margin:270px 40px;
+        background-color:rgba(255, 0, 34, 0.5);
+        -webkit-box-shadow: 2px 0px 15px rgba(0,0,0,0.5);
+        transform-origin: right center;
+        position:absolute;
+    }
+    #pin{
+        height:30px;
+        width:30px;
+        margin:260px 260px;
+        background-color: rgba(118, 247, 214, 0.8);
+        border-radius:50%;
+        -webkit-box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+        transform-origin:right center;
+    }
+    
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="clock">
+        <div id ="hour"></div>
+        <div id ="minute"></div>
+        <div id ="second"></div>
+        <div id ="pin"></div>
+    </div>
+</div>
+<script>
+    const hour = document.getElementById("hour");
+    const minute = document.getElementById("minute");
+    const second = document.getElementById("second");
+    setInterval(updateTime, 1000);
+
+    function updateTime(){
+        let date = new Date ();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        hour.style.transform = `rotate( ${h*30+90}deg )`;
+		minute.style.transform = `rotate( ${m*6+90}deg )`;
+		second.style.transform = `rotate( ${s*6+90}deg )`;
+    }
+    updateTime();
+</script>
+</body>
+</html>
